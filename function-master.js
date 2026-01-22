@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { concat } = require("lodash");
+
 
 
 function objectValues(object) { // num 13
@@ -116,8 +116,18 @@ return `Welcome ${capitalizedName}!`;
 
 function profileInfo(object) { // num 20
 // Should take an object with a name an a species and return '<Name> is a <Species>'"
- //return object.name + " is a " + object.species;
 
+
+ const capitalizedName = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+ // capitalize first letter of name and species in the obj
+ // code is returning a string
+ const capitalizedSpecies = object.species.charAt(0).toUpperCase() + object.species.slice(1);
+ // return
+return `${capitalizedName} is a ${capitalizedSpecies}`;
+
+
+//return capitalizedName + " is a " + object.species;
+//return object.name[0]
 //concat( " is a ", object.species);
 
 //return `${object.name} is a  ${object.species}`;
@@ -198,19 +208,23 @@ return false;
 
 function nonFriends(name, array) { // num 25
 //  Should take a name and a list of people, and return a list of all the names that <name> is not friends with
+
 const notFriendsList = [];
 // for statemnt
 for (let i = 0; i < array.length; i++) {
     // if statmen
-    // erase const person = array[i];
-   // if (array[i] === name) {
-    if (array[i].name !== name) {
-        // push method
-        if (array[i].name !== name && array[i].friends.includes(name)) {
-            // 
-       // notFriendsList.push(array[i]);
-        notFriendsList.push(array[i].name);
-    }
+    //
+   // create var
+    const person = array[i];
+    
+        // if statemnt using the persons name
+        //-- old note name is stricty unequal to the value name
+        if (person.name !== name && !person.friends.includes(name)) {
+        
+            notFriendsList.push(person.name);
+
+       // notFriendsList.push using push method);
+       
     }
 }
 // return

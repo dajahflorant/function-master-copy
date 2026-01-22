@@ -151,7 +151,7 @@
         whatever();
       }
       something(yay);
-      assert.equal(im_outter, "???"); // print 
+      assert.equal(im_outter, "40"); // print  40
   
     });
   
