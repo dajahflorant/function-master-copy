@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { concat } = require("lodash");
+
 
 function objectValues(object) { // num 13
 //   Should take an object and return its values in an array
@@ -104,35 +106,23 @@ function capitalizeAllWords(string) { // num 18
 function welcomeMessage(object) { // num 19
 // Should take an object with a name property and return 'Welcome <Name>!'"
 const name = object.name;
-const capitalizedName = toUpperCase() + name.slice(1);
+//const capitalizedName = toUpperCase() + name.slice(1);
+const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
 return `Welcome ${capitalizedName}!`;
-
-
 }
-
-
-
-
-
-
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) { // num 20
 // Should take an object with a name an a species and return '<Name> is a <Species>'"
+ //return object.name + " is a " + object.species;
 
-
-
-
-
-
-
-
+//concat( " is a ", object.species);
 
 //return `${object.name} is a  ${object.species}`;
 }
-//return object.name + " is a " + object.species;
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -208,17 +198,23 @@ return false;
 
 function nonFriends(name, array) { // num 25
 //  Should take a name and a list of people, and return a list of all the names that <name> is not friends with
-const nonFriends = [];
+const notFriendsList = [];
 // for statemnt
 for (let i = 0; i < array.length; i++) {
     // if statmen
-    if (array[i]!== name) {
+    // erase const person = array[i];
+   // if (array[i] === name) {
+    if (array[i].name !== name) {
         // push method
-        nonFriendsList.push(array[i]);
+        if (array[i].name !== name && array[i].friends.includes(name)) {
+            // 
+       // notFriendsList.push(array[i]);
+        notFriendsList.push(array[i].name);
+    }
     }
 }
 // return
-return nonFriendsList;
+return notFriendsList;
 }
 
 
